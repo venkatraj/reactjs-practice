@@ -1,0 +1,55 @@
+.widget {
+  background: $light-blue;
+  margin-bottom: $xl-size;
+}
+
+.widget__heading {
+  background: $blue;
+  color: $off-white;
+  display: flex;
+  justify-content: space-between;
+  padding: $m-size;
+
+  h3 {
+    margin: 0;
+  }
+}
+
+.widget__body {
+  color: $off-white;
+  font-size: 2rem;
+  p {
+    text-align: center;
+  }
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+  }
+  li {
+    padding: $l-size $m-size;
+    border-bottom: 1px solid darken($light-blue, 10%);
+    display: flex;
+    justify-content: space-between;
+    color: white;
+
+    span {
+      color: $off-white;
+    }
+  }
+}
+
+.add-option {
+  display: flex;
+  justify-content: space-between;
+  padding: $m-size;
+
+  input {
+    flex-grow: 2;
+    margin-right: $m-size;
+    background: $blue;
+    border: none;
+    border-bottom: 5px solid darken($blue, 5%);
+  }
+}
+
