@@ -1,6 +1,5 @@
 import { createStore, combineReducers } from 'redux'
 import uuid from 'uuid'
-import { get } from 'https';
 
 // Actions
 const addExpense = (
