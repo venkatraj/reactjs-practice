@@ -7,14 +7,33 @@ import moment from 'moment'
 
 
 class ExpenseForm extends React.Component {
-  state = {
-    description: '',
-    note: '',
-    amount: '',
-    createdAt: moment(),
-    calendarFocused: false,
-    error: null
+
+  constructor(props) {
+    super(props)
+    if (props.expense) {
+      const { description, amount, note, createdAt } = props.expense
+      this.state = {
+        description,
+        note,
+        amount: (amount / 100).toString(),
+        createdAt: moment(createdAt),
+        calendarFocused: false,
+        error: null,
+        buttonText: 'Update Expense'
+      }
+    } else {
+      this.state = {
+        description: '',
+        note: '',
+        amount: '',
+        createdAt: moment(),
+        calendarFocused: false,
+        error: null,
+        buttonText: 'Add Expense'
+      }
+    }
   }
+
 
   onDescriptionChange = (e) => {
     const description = e.target.value
@@ -93,7 +112,7 @@ class ExpenseForm extends React.Component {
           >
           </textarea>
           <button>
-            Add Expense
+            {this.state.buttonText}
           </button>
         </form>
       </div>

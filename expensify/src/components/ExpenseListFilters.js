@@ -1,30 +1,38 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { setTextFilter, sortByAmount, sortByDate } from '../actions/filters'
+import { DateRangePicker } from 'react-dates'
 
 
-const ExpenseListFilters = (props) => (
-  <div>
-    <input 
-      type='text' 
-      value={props.filters.text} 
-      onChange={ e => props.dispatch(setTextFilter(e.currentTarget.value)) }
-    />
-    <select 
-      value={props.filters.sortBy} 
-      onChange={ e => {
-        if(e.currentTarget.value == 'date') {
-          props.dispatch(sortByDate())
-        } else if (e.currentTarget.value == 'amount') {
-          props.dispatch(sortByAmount())
-        }
-      }}
-    >
-      <option value="date">Date</option>
-      <option value="amount">Amount</option>
-    </select>
-  </div>
-)
+class ExpenseListFilters extends React.Component {
+  render() {
+    return (
+      <div>
+        <input
+          type='text'
+          value={props.filters.text}
+          onChange={e => props.dispatch(setTextFilter(e.currentTarget.value))}
+        />
+        <select
+          value={props.filters.sortBy}
+          onChange={e => {
+            if (e.currentTarget.value == 'date') {
+              props.dispatch(sortByDate())
+            } else if (e.currentTarget.value == 'amount') {
+              props.dispatch(sortByAmount())
+            }
+          }}
+        >
+          <DateRangePicker
+          />
+          <option value="date">Date</option>
+          <option value="amount">Amount</option>
+        </select>
+      </div>
+    )
+  }
+
+}
 
 const mapStateToProps = (state) => {
   return {
