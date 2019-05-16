@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "serve": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "N. Venkat Raj",
@@ -20,6 +20,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.1",
+    "jest": "^24.8.0",
     "node-sass": "^4.12.0",
     "react-router-dom": "^5.0.0",
     "sass": "^1.20.1",
