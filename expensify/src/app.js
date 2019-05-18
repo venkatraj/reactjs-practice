@@ -6,6 +6,7 @@ import configureStore from './store/configureStore'
 import { addExpense, editExpense, removeExpense } from './actions/expenses'
 import 'normalize.css'
 import './styles/style.scss'
+import 'react-dates/lib/css/_datepicker.css'
 
 const store = configureStore()
 
