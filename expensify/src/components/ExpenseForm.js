@@ -1,12 +1,8 @@
 import React from 'react';
-import 'react-dates/initialize'
-import { SingleDatePicker } from 'react-dates'
 import moment from 'moment'
-
-
+import { SingleDatePicker } from 'react-dates'
 
 class ExpenseForm extends React.Component {
-
   constructor(props) {
     super(props)
     if (props.expense) {
@@ -46,6 +42,7 @@ class ExpenseForm extends React.Component {
 
   onAmountChange = (e) => {
     const amount = e.target.value
+
     if (!amount || amount.match(/^\d+(\.\d{0,2})?$/)) {
       this.setState(() => ({ amount }))
     }
@@ -72,7 +69,7 @@ class ExpenseForm extends React.Component {
       const expense = {
         description: this.state.description,
         note: this.state.note,
-        amount: parseFloat(this.state.amount) * 100,
+        amount: parseFloat(this.state.amount, 10) * 100,
         createdAt: this.state.createdAt.valueOf()
       }
       this.props.onSubmit(expense)
@@ -87,6 +84,7 @@ class ExpenseForm extends React.Component {
           <input
             type="text"
             placeholder="Description"
+            autoFocus
             value={this.state.description}
             onChange={this.onDescriptionChange}
           />
